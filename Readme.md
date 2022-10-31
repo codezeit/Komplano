@@ -24,7 +24,7 @@
 ### Requirements
 
 - Docker
-- Pipenv
+- [Pipenv](https://pipenv.pypa.io/en/latest/basics/#example-pipfile-pipfile-lock)
 
 ### Setup
 
