@@ -4,6 +4,7 @@
 
 - Chores planner (MVP)
 - Shopping list
+- Budget tracking
 - Calendar
 - Notes(?)
 
@@ -12,8 +13,25 @@
 ### API
 
 - FastAPI
-- Pocketbase
+- PostgreSQL
 
 ### Client
 
-- Angular
+ - Angular
+
+## Development
+
+### Requirements
+
+- Docker
+- Pipenv
+
+### Setup
+
+```bash
+# Start the database
+docker-compose up -d
+
+# Install dependencies
+pipenv install
+```
