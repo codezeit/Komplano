@@ -1,0 +1,2 @@
+# Ignore .env to not accidentally commit it
+.env
