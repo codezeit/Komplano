@@ -14,6 +14,7 @@
 
 - FastAPI
 - PostgreSQL
+- SQLAlchemy/psycopg
 
 ### Client
 
