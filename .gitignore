@@ -1,2 +1,4 @@
 # Ignore .env to not accidentally commit it
 .env
+
+__pycache__
