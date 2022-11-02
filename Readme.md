@@ -14,11 +14,11 @@
 
 - FastAPI
 - PostgreSQL
-- SQLAlchemy/psycopg
+- SQLAlchemy/psycopg/Alembic?
 
 ### Client
 
- - Angular
+ - Angular?
 
 ## Development
 
