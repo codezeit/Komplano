@@ -30,9 +30,18 @@
 ### Setup
 
 ```bash
+# create .env file (e.g., by renaming .env.sample)
+
 # Start the database
 docker-compose up -d
+OR docker compose up -d
 
 # Install dependencies
 pipenv install
+
+# Swith to pipenv shell
+pipenv shell
+
+# Start app
+univorn app.main:app --reload
 ```
