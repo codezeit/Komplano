@@ -34,14 +34,15 @@
 
 # Start the database
 docker-compose up -d
-OR docker compose up -d
+## alternatively, use
+docker compose up -d
 
 # Install dependencies
 pipenv install
 
-# Swith to pipenv shell
+# Switch to pipenv shell
 pipenv shell
 
 # Start app
-univorn app.main:app --reload
+uvicorn app.main:app --reload
 ```
