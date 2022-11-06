@@ -1,10 +1,11 @@
-"""User Class"""
+"""User Class Module"""
 from sqlalchemy import Column, Integer, String
 
 from ..db import database
 
 
 class User(database.Base):
+    """User Class"""
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, index=True)

@@ -1,12 +1,11 @@
 """
-Databse Connector
+Database Connector
 """
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 from ..config import get_settings
 
-# settings = Settings()
 settings = get_settings()
 
 SQALCHEMY_DATABASE_URL = 'postgresql://{}:{}@{}:{}/{}'.format(
