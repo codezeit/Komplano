@@ -3,7 +3,7 @@ This is the CRUD-Controler for all database operations
 """
 from sqlalchemy.orm import Session
 from ..models.user import User
-from ..schemas import userSchemas
+from ..schemas import user_schemas
 
 
 def get_user(db: Session, user_id: int):
@@ -21,7 +21,7 @@ def get_user_by_email(db: Session, email: str):
     return db.query(User).filter(User.email == email).first()
 
 
-def create_user(db: Session, user: userSchemas.UserCreate):
+def create_user(db: Session, user: user_schemas.UserCreate):
     """Create user"""
     fake_hashed_password = user.password + "notreallyhashed"
     db_user = User(
