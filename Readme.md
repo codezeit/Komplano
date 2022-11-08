@@ -49,5 +49,4 @@ uvicorn app.main:app --reload
 
 ### Running tests
 
-1. `request` and `pytest` are required (e.g., `pip install`)
-2. run `pytest`
+`python -m pytest app/tests`
