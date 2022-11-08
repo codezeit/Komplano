@@ -1,10 +1,10 @@
 """User Class Module"""
 from sqlalchemy import Column, Integer, String
 
-from ..db import database
+from ..db.database import Base
 
 
-class User(database.Base):
+class User(Base):
     """User Class"""
     __tablename__ = 'users'
 

@@ -5,14 +5,13 @@ from sqlalchemy.orm import Session
 from dotenv import load_dotenv
 from .crud import crud
 from .schemas import user_schemas
-from .db.database import Base, engine, SessionLocal
-
-
-Base.metadata.create_all(bind=engine)
+from .db.database import SessionLocal, Base, get_engine
 
 load_dotenv()
 
 app = FastAPI()
+
+Base.metadata.create_all(bind=get_engine())
 
 
 def get_db():
@@ -25,7 +24,10 @@ def get_db():
 
 
 @app.post("/users/", response_model=user_schemas.User)
-def create_user(user: user_schemas.UserCreate, db: Session = Depends(get_db)):
+def create_user(
+        user: user_schemas.UserCreate, 
+        db: Session = Depends(get_db)
+        ):
     """"Creates a new User."""
     db_user = crud.get_user_by_email(db, email=user.email)
     if db_user:
@@ -34,14 +36,21 @@ def create_user(user: user_schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 @app.get("/users/", response_model=list[user_schemas.User])
-def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+def read_users(
+        skip: int = 0, 
+        limit: int = 100, 
+        db: Session = Depends(get_db)
+        ):
     """"Returns a list of users."""
     users = crud.get_users(db, skip=skip, limit=limit)
     return users
 
 
 @app.get("/users/{user_id}", response_model=user_schemas.User)
-def read_user(user_id: int, db: Session = Depends(get_db)):
+def read_user(
+        user_id: int,
+        db: Session = Depends(get_db)
+        ):
     """"Returns a single user."""
     db_user = crud.get_user(db, user_id=user_id)
     if db_user is None:
