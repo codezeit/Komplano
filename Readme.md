@@ -46,3 +46,8 @@ pipenv shell
 # Start app
 uvicorn app.main:app --reload
 ```
+
+### Running tests
+
+1. `request` and `pytest` are required (e.g., `pip install`)
+2. run `pytest`
