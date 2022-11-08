@@ -1,4 +1,8 @@
 # Ignore .env to not accidentally commit it
 .env
 
+# Misc
 __pycache__
+
+# Tests
+test.db
