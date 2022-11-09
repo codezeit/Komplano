@@ -33,3 +33,11 @@ def login(
         data={"sub": user.email}
     )
     return {"access_token": access_token, "token_type": "bearer"}
+
+
+# test route only for logged in users
+@router.get("/test")
+def test(
+        current_user: User = Depends(auth.get_current_user)):
+    """Test route for logged in users."""
+    return {"message": f"Hello {current_user.name}"}
