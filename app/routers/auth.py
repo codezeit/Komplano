@@ -30,4 +30,8 @@ def login(
     if not auth.verify_password(form_data.password, user.hashed_password):
         raise HTTPException(status_code=400, detail="Incorrect username or password")
 
-    return {"access_token": user.email, "token_type": "bearer"}
+    # Generate a JWT token and return it
+    access_token = auth.create_access_token(
+        data={"sub": user.email}
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
