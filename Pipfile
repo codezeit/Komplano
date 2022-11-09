@@ -12,6 +12,7 @@ python-dotenv = "*"
 pytest = "*"
 requests = "*"
 pytest-dotenv = "*"
+alembic = "*"
 
 [dev-packages]
 
