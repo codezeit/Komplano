@@ -13,6 +13,9 @@ pytest = "*"
 requests = "*"
 pytest-dotenv = "*"
 alembic = "*"
+python-multipart = "*"
+python-jose = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
 
 [dev-packages]
 
