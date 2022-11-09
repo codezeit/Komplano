@@ -18,6 +18,9 @@ class Settings(BaseSettings):
     postgres_port: int
     postgres_db: str
     environment: str
+    secret_key: str
+    algorithm: str
+    access_token_expire_minutes: int
 
     class Config:
         """Define name and path of .env file."""

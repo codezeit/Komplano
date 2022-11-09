@@ -12,6 +12,9 @@ python-dotenv = "*"
 pytest = "*"
 requests = "*"
 pytest-dotenv = "*"
+python-multipart = "*"
+python-jose = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
 
 [dev-packages]
 
