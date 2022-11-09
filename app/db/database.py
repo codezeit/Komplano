@@ -43,3 +43,12 @@ SessionLocal = sessionmaker(
     autoflush=False,
     bind=get_engine()
     )
+
+
+def get_db():
+    """Creates a new database Session."""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
