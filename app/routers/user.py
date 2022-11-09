@@ -15,7 +15,7 @@ router = APIRouter(
 
 @router.post("/", response_model=user_schemas.User)
 def create_user(
-        user: user_schemas.UserCreate, 
+        user: user_schemas.UserCreate,
         db: Session = Depends(get_db)
         ):
     """"Creates a new User."""
@@ -27,8 +27,8 @@ def create_user(
 
 @router.get("/", response_model=list[user_schemas.User])
 def read_users(
-        skip: int = 0, 
-        limit: int = 100, 
+        skip: int = 0,
+        limit: int = 100,
         db: Session = Depends(get_db)
         ):
     """"Returns a list of users."""

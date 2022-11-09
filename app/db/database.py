@@ -31,8 +31,10 @@ def get_test_db_url():
 def get_engine():
     """Creates a new database Session."""
     engine = create_engine(
-        get_test_db_url() if settings.environment=="test" else get_db_url(),
-        connect_args={"check_same_thread": False} if settings.environment=="test" else {}
+        get_test_db_url() if settings.environment == "test" else get_db_url(),
+        connect_args={"check_same_thread": False}
+        if settings.environment == "test"
+        else {},
     )
 
     return engine

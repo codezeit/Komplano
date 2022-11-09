@@ -32,8 +32,3 @@ def create_user(db: Session, user: user_schemas.UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
-
-
-# def hash_password(password: str):
-#     """(Fake) Hash password."""
-#     return password + "notreallyhashed"  # TODO really hash password pls

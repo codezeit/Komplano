@@ -4,6 +4,7 @@ from sqlalchemy import Column, Integer, String
 from ..db.database import Base
 
 
+# pylint: disable=too-few-public-methods
 class User(Base):
     """User Class"""
     __tablename__ = 'users'

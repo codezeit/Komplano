@@ -11,7 +11,7 @@ class UserCreate(UserBase):
     """Pydantic Class for User Creation"""
     password: str
     name: str
- 
+
 
 class User(UserBase):
     """Pydantic Class for User"""
