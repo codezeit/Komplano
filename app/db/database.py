@@ -7,11 +7,11 @@ from sqlalchemy.orm import sessionmaker
 from ..config import get_settings
 
 Base = declarative_base()
+settings = get_settings()
 
 
 def get_db_url():
     """Returns the database url."""
-    settings = get_settings()
     sqlalchemy_database_url = 'postgresql://{}:{}@{}:{}/{}'.format(
         settings.postgres_user,
         settings.postgres_password,
@@ -28,11 +28,11 @@ def get_test_db_url():
     return sqlalchemy_database_url
 
 
-def get_engine(test=False):
+def get_engine():
     """Creates a new database Session."""
     engine = create_engine(
-        get_test_db_url() if test else get_db_url(),
-        connect_args={"check_same_thread": False} if test else {}
+        get_test_db_url() if settings.environment=="test" else get_db_url(),
+        connect_args={"check_same_thread": False} if settings.environment=="test" else {}
     )
 
     return engine
@@ -42,10 +42,4 @@ SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
     bind=get_engine()
-    )
-
-SessionLocalTest = sessionmaker(
-    autocommit=False,
-    autoflush=False,
-    bind=get_engine(test=True)
     )

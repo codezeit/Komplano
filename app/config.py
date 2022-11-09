@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     postgres_host: str
     postgres_port: int
     postgres_db: str
+    environment: str
 
     class Config:
         """Define name and path of .env file."""

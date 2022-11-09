@@ -1,34 +1,20 @@
-"""Test routes in main.py. You need to have requests and pytest installed."""
+"""Test routes in main.py."""
 
 from fastapi.testclient import TestClient
+from ..db.database import Base, get_engine
+from ..main import app
 
-from ..main import app, get_db
-from ..db.database import SessionLocalTest, Base, get_engine
+Base.metadata.drop_all(bind=get_engine())
+Base.metadata.create_all(bind=get_engine())
 
 client = TestClient(app)
-
-Base.metadata.drop_all(bind=get_engine(test=True))
-Base.metadata.create_all(bind=get_engine(test=True))
-
-
-def override_get_db():
-    """Overrides get_db function."""
-    try:
-        db = SessionLocalTest()
-        yield db
-    finally:
-        db.close()
-
-
-# Override get_db function
-app.dependency_overrides[get_db] = override_get_db
-
 
 test_user_dict = {
         "email": "foo@bar.com",
         "name": "Foo Bar",
         "id": 1
     }
+
 
 def test_get_users():
     """Test GET /users route."""

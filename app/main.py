@@ -9,9 +9,10 @@ from .db.database import SessionLocal, Base, get_engine
 
 load_dotenv()
 
-app = FastAPI()
-
 Base.metadata.create_all(bind=get_engine())
+
+
+app = FastAPI()
 
 
 def get_db():
