@@ -32,11 +32,10 @@ def test_create_user():
     assert response.status_code == 200
     user = response.json()
     assert user == test_user_dict
-
-    response = client.get(f"/users/{user['id']}")
+    response = client.get("/users")
     assert response.status_code == 200
-    assert response.json() == user
-
+    assert response.json()[0] == user
+    
 
 def test_create_user_duplicate_email():
     """Test POST /users route with duplicate email."""
