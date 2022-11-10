@@ -49,4 +49,4 @@ uvicorn app.main:app --reload
 
 ### Running tests
 
-`python -m pytest app/tests`
+`python -m pytest app/tests --envfile .test.env`
