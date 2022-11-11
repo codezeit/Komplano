@@ -9,14 +9,15 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     """Pydantic Class for User Creation"""
+    username: str
+    email: str
     password: str
-    name: str
 
 
 class User(UserBase):
     """Pydantic Class for User"""
     id: int
-    name: str
+    username: str
 
     class Config:
         """Pydantic Config Class for User"""

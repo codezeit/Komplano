@@ -26,8 +26,9 @@ def create_user(db: Session, user: user_schemas.UserCreate):
     """Create user"""
     db_user = User(
         email=user.email,
-        hashed_password=auth.get_password_hash(user.password),
-        name=user.name)
+        username=user.username,
+        hashed_password=auth.get_password_hash(user.password)
+        )
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
