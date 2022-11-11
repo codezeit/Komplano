@@ -1,4 +1,5 @@
 # Komplano
+![Build Status](https://github.com/codezeit/Komplano/actions/workflows/-python-app.yml/badge.svg)
 
 ## Use cases
 
