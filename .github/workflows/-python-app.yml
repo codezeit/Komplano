@@ -25,6 +25,7 @@ jobs:
         python -m pip install --upgrade pip
         # We're using pipenv to manage dependencies
         pip install pipenv
+        pip install flake8
         pipenv install --dev
     - name: Lint with flake8
       run: |
