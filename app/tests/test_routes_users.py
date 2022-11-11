@@ -4,7 +4,6 @@ from fastapi.testclient import TestClient
 from ..db.database import Base, get_engine
 from ..main import app
 from .fixtures import test_users
-import pytest
 
 Base.metadata.drop_all(bind=get_engine())
 Base.metadata.create_all(bind=get_engine())
@@ -37,7 +36,8 @@ def test_create_user():
     response_user = response.json()
     assert compare_user_info(test_user, response_user)
 
-    # check if created user is really in db, this means also testing getting user by id
+    # check if created user is really in db
+    # this means also testing getting user by id
     response = client.get(f"/users/{response_user['id']}")
     print(response.content)
     assert response.status_code == 200
@@ -56,9 +56,10 @@ def test_create_user_duplicate_email():
     }
 
 
-def test_get_users_filled():
-    """Test GET /users route."""
-    test_user = test_users["test_user1"]
-    response = client.get("/users")
-    print(response.content)
-    assert response.status_code == 200
+# FIXME update this test function if it's necessary, else delete
+# def test_get_users_filled():
+#     """Test GET /users route."""
+#     test_user = test_users["test_user1"]
+#     response = client.get("/users")
+#     print(response.content)
+#     assert response.status_code == 200
