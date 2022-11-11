@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from .db.database import Base, get_engine
 from .routers import user, auth
+from .config import get_settings
 
 load_dotenv()
 
@@ -22,13 +23,14 @@ origins = [
     "http://localhost:8000",
 ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+if get_settings().environment != "test":
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 app.include_router(user.router)
 app.include_router(auth.router)

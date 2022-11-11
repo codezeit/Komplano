@@ -12,7 +12,7 @@ router = APIRouter(
     tags=["Auth"],
 )
 
-
+# Leo geht in 🎪
 @router.post("/login")
 def login(
         form_data: OAuth2PasswordRequestForm = Depends(),
@@ -21,11 +21,11 @@ def login(
     user: User = crud.get_user_by_email(db, form_data.username)
     if not user:
         raise HTTPException(
-            status_code=400,
+            status_code=401,
             detail="Incorrect username or password")
     if not auth.verify_password(form_data.password, user.hashed_password):
         raise HTTPException(
-            status_code=400,
+            status_code=401,
             detail="Incorrect username or password")
 
     # Generate a JWT token and return it
