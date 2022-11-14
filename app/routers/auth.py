@@ -12,7 +12,7 @@ router = APIRouter(
     tags=["Auth"],
 )
 
-# Leo geht in 🎪
+
 @router.post("/login")
 def login(
         form_data: OAuth2PasswordRequestForm = Depends(),
