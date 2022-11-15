@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from .db.database import Base, get_engine
-from .routers import user, auth
+from .routers import user, auth, chores
 from .config import get_settings
 
 load_dotenv()
@@ -34,3 +34,4 @@ if get_settings().environment != "test":
 
 app.include_router(user.router)
 app.include_router(auth.router)
+app.include_router(chores.router)
