@@ -10,6 +10,8 @@
 - Indicator if active user is next in line
 - Indicator showing general distribution who does this tasks how often/regular or how active user compares to the average
 
-# GET functions
+# Things to work / to be tested
+
+## routes GET
 
 - 

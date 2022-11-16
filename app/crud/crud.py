@@ -3,7 +3,8 @@ This is the CRUD-Controler for all database operations
 """
 from sqlalchemy.orm import Session
 from ..models.user import User
-from ..schemas import user_schemas
+from ..models.chores import Chore
+from ..schemas import user_schemas, chores_schemas
 from ..services import auth
 
 
@@ -36,11 +37,25 @@ def create_user(db: Session, user: user_schemas.UserCreate):
     db.refresh(db_user)
     return db_user
 
+
 # Chores related CRUDs
 
-def create_chore(db: Session):
-    pass
+def get_chores(db: Session, skip: int = 0, limit: int = 100):
+    """Get all chores"""
+    return db.query(Chore).offset(skip).limit(limit).all()
 
 
-def edit_chore(db: Session):
-    pass
+def create_chore(db: Session, chore: chores_schemas.Chore):
+    """Create chore"""
+    db_chore = Chore(
+        title=chore.title,
+        description=chore.description
+        )
+    db.add(db_chore)
+    db.commit()
+    db.refresh(db_chore)
+    return db_chore
+
+
+# def edit_chore(db: Session):
+#     pass
