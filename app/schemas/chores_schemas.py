@@ -19,12 +19,12 @@ class Chore(ChoreBase):
     id: int
     title: str
     description: str
-    # created_by: int
-    # created_on: datetime
-    # room: str
-    # is_active: bool
-    # flat_id: int
-    # cycle_days: int
+    created_by: int | None = None
+    created_on: datetime | None = None
+    room: str | None = None
+    is_active: bool | None = None
+    flat_id: int | None = None
+    cycle_days: int | None = None
 
     class Config:
         """Pydantic Config Class for Chore"""
