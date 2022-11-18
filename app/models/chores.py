@@ -16,7 +16,7 @@ class Chore(Base):
     description = Column(String)
     created_by = Column(Integer)
     created_on = Column(DateTime, default=datetime.utcnow())
-    room = Column(Integer)
+    room = Column(String)
     is_active = Column(Boolean, default=True)
     flat_id = Column(Integer)
     cycle_days = Column(Integer)  # has to be done every {cycle_days} days

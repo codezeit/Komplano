@@ -49,7 +49,10 @@ def create_chore(db: Session, chore: chores_schemas.Chore):
     """Create chore"""
     db_chore = Chore(
         title=chore.title,
-        description=chore.description
+        description=chore.description,
+        room=chore.room,
+        cycle_days=chore.cycle_days,
+        flat_id=chore.flat_id
         )
     db.add(db_chore)
     db.commit()

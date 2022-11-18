@@ -22,16 +22,29 @@ def test_get_chores():
 def test_create_chore():
     """Test POST /chores route"""
     test_chore = {
+        # "id": 1,
         "title": "Clean Toilet",
         "description": "Make sure everything is clean",
-        # "room": "Bathroom",
-        # "cycle_days": 7,
-        # "flat_id": 1
+        "room": "Bathroom",
+        "cycle_days": 7,
+        "flat_id": 1
         }
-    print(type(test_chore))
     print(test_chore)
     response = client.post("/chores/", json=test_chore)
     print(response)
-    print(response.headers)
-    print(response.content)
+    assert response.status_code == 200
+
+
+def test_chore_done():
+    """
+    Test user marking a chore as done. This should be written
+    to the chore log table.
+    """
+    
+    # chore_id = id of chore user marks as done
+    
+    # user_id = id of user (currently logged in user)
+    # who marks the chore as done
+    
+    response = client.post(f"/chores/{chore_id}")
     assert response.status_code == 200
