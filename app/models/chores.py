@@ -29,6 +29,8 @@ class ChoreLog(Base):
     id = Column(Integer, primary_key=True, index=True)
     chore_id = Column(Integer)  # flat id, room should be obvious from chore id
     user_id = Column(Integer)
+    date = Column(DateTime, default=datetime.utcnow())
+    finished = Column(Boolean)
 
 # class User(Base):
 #     """User Class"""

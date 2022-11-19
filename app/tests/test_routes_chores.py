@@ -3,7 +3,8 @@
 from fastapi.testclient import TestClient
 from ..db.database import Base, get_engine
 from ..main import app
-# from .fixtures import test_users
+from .fixtures import test_users
+from ..crud.crud import get_user_by_email
 
 Base.metadata.drop_all(bind=get_engine())
 Base.metadata.create_all(bind=get_engine())
@@ -40,11 +41,43 @@ def test_chore_done():
     Test user marking a chore as done. This should be written
     to the chore log table.
     """
+
+    # Create user
+    user = test_users["test_user1"]
+    print(user)
+    response_user = client.post("/users/", json=user)
+    print(response_user.json())
     
-    # chore_id = id of chore user marks as done
+    # Create chore
+    chore = {"title": "Testchore",
+             "description": "Test description",
+             "room": "test room"}
+    response_chore = client.post("/chores/", json=chore)
+    print(response_chore.status_code, response_chore.json())
     
-    # user_id = id of user (currently logged in user)
-    # who marks the chore as done
+    # Login user
+    username = user["email"]
+    password = user["password"]
+    print(username, password)
+    response_login = client.post("/auth/login", data={
+        "username": username,
+        "password": password
+        })
+    print(response_login.status_code, response_login.content)
+    print(response_login.headers)
     
-    response = client.post(f"/chores/{chore_id}")
+    token_info = response_login.json()
+    access_token = token_info["access_token"]
+    token_type = token_info["token_type"]
+    auth_header = {
+        "Authorization": f"{token_type} {access_token}"
+    }
+    print('auth header: ', auth_header)
+
+    # Mark chore as done
+    chore_id = 1
+    response = client.post(f"/chores/{chore_id}",
+                           headers=auth_header,
+                           json={"finished": True})
+    print(response.status_code, response.content)
     assert response.status_code == 200

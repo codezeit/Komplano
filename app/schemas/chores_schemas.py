@@ -29,3 +29,16 @@ class Chore(BaseModel):
     class Config:
         """Pydantic Config Class for Chore"""
         orm_mode = True
+
+
+class ChoreDoneBase(BaseModel):
+    """Pydantic base model for entries in chore done table"""
+    finished: bool
+
+
+class ChoreDoneReturn(ChoreDoneBase):
+    """Chore done model for returning when setting chore done"""
+    chore_id: int
+    # user_id: int
+    finished: bool
+    date: datetime
