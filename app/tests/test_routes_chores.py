@@ -43,7 +43,7 @@ def test_chore_done():
     """
 
     # Create user
-    user = test_users["test_user1"]
+    user = test_users["test_user4"]
     response_user = client.post("/users/", json=user)
     print(response_user.status_code, response_user.json())
     

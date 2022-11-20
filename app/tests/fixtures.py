@@ -16,4 +16,9 @@ test_users = {
         "username": "Test User",
         "password": "testuser",
     },
+    "test_user4": {
+        "email": "user@choretest.py",
+        "username": "Chore Tester",
+        "password": "testuser",
+    },
 }
