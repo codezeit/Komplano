@@ -44,9 +44,8 @@ def test_chore_done():
 
     # Create user
     user = test_users["test_user1"]
-    print(user)
     response_user = client.post("/users/", json=user)
-    print(response_user.json())
+    print(response_user.status_code, response_user.json())
     
     # Create chore
     chore = {"title": "Testchore",
@@ -58,13 +57,10 @@ def test_chore_done():
     # Login user
     username = user["email"]
     password = user["password"]
-    print(username, password)
     response_login = client.post("/auth/login", data={
         "username": username,
         "password": password
         })
-    print(response_login.status_code, response_login.content)
-    print(response_login.headers)
     
     token_info = response_login.json()
     access_token = token_info["access_token"]
