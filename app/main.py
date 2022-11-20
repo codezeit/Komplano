@@ -3,7 +3,8 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from .db.database import Base, get_engine
-from .routers import user, auth
+from .routers import user, auth, chores
+from .config import get_settings
 
 load_dotenv()
 
@@ -17,3 +18,4 @@ app = FastAPI(
 
 app.include_router(user.router)
 app.include_router(auth.router)
+app.include_router(chores.router)

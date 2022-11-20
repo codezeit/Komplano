@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="IRE4RYft8Wkg2p7bfkMU" name="Page-1">
+        <mxGraphModel dx="704" dy="404" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="to do now" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="40" width="200" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Chores App/Site/Tab" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=4" parent="1" vertex="1">
+                    <mxGeometry x="280" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Box with buttons for filtering flats (differ by color)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="40" width="80" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="upcoming tasks for the next 2 (?, maybe implement setting for switching this) weeks" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="40" width="200" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="[Room Symbol, background color indicating flat] &lt;b&gt;Task A&lt;br&gt;&lt;/b&gt;Days since due/Today" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="50" width="140" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="[Room Symbol, background color indicating flat] &lt;b&gt;Task B&lt;br&gt;&lt;/b&gt;Due date (weekday, e.g. &quot;next Monday&quot;)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="50" width="140" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Flat 1" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="50" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Flat 2" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="80" width="60" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
